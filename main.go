@@ -1,30 +1,21 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
-	"os"
+
+	db "golang-game/database"
+	handlers "golang-game/handlers"
 )
 
 func main() {
-	log.Print("starting server...")
-	http.HandleFunc("/teste", handler)
 
-	port := "8081" 
-	log.Printf("defaulting to port %s", port)
+	db.InitDB()
 
-	// Start HTTP server.
-	log.Printf("listening on port %s", port)
-	if err := http.ListenAndServe(":"+port, nil); err != nil {
-		log.Fatal(err)
-	}
-}
+	http.HandleFunc("/characters", handlers.CharactersHandler)
+	http.HandleFunc("/characters/", handlers.CharacterByIDHandler)
+	http.HandleFunc("/battle", handlers.BattleHandler)
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	name := os.Getenv("NAME")
-	if name == "" {
-		name = "World"
-	}
-	fmt.Fprintf(w, "Hello %s!\n", name)
+	log.Println("Server listening in :8081")
+	log.Fatal(http.ListenAndServe(":8081", nil))
 }

@@ -1,0 +1,32 @@
+# Go build output
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Dependency directory (if using Go modules with vendoring)
+vendor/
+
+# Common temporary and backup files
+*.log
+*.tmp
+*.swp
+*~
+
+# IDEs and editor settings
+.vscode/
+.idea/
+*.iml
+
+# Build tools or other language outputs (optional)
+dist/
+build/
+coverage.out
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+tmp/main

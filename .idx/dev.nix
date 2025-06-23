@@ -7,6 +7,7 @@
   packages = [
     pkgs.go
     pkgs.air
+    pkgs.gcc48
   ];
   # Sets environment variables in the workspace
   env = {};
