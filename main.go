@@ -16,6 +16,6 @@ func main() {
 	http.HandleFunc("/characters/", handlers.CharacterByIDHandler)
 	http.HandleFunc("/battle", handlers.BattleHandler)
 
-	log.Println("Server listening in :8081")
-	log.Fatal(http.ListenAndServe(":8081", nil))
+	log.Println("Server listening in :8080")
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

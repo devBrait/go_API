@@ -1,0 +1,12 @@
+### Criar personagem
+POST http://localhost:8080/characters
+Content-Type: application/json
+
+{
+  "name": "Brait",
+  "class": "Wizard"
+}
+
+###
+
+GET http://localhost:8080/characters
